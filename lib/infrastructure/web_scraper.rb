@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 require_relative '../domain/entry'
-class WebScrapper
+class WebScraper
   def initialize(url = 'https://news.ycombinator.com/' )
     @url = url
   end

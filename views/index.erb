@@ -5,7 +5,51 @@
 </head>
 <body>
   <div class="container">
-    <div class="header">Hacker News Web Crawler</div>
+    <div class="header">Hacker News Web Scrapper</div>
+
+    <div class="controls">
+      <form action="/" method="GET">
+        <select name="filter" id="filter" style="padding: 5px;">
+          <option value="all" <%= 'selected' if @filter_type == 'all' %>>
+            All Entries
+          </option>
+          <option value="long_titles" <%= 'selected' if @filter_type == 'long_titles' %>>
+            Entries with more than 5 words in the title (Ordered by Number of Comments)
+          </option>
+          <option value="short_titles" <%= 'selected' if @filter_type == 'short_titles' %>>
+            Entries with less than 5 words in the title (Ordered by Points)
+          </option>
+        </select>
+        <button type="submit" style="padding: 6px 15px; cursor: pointer;">Apply</button>
+      </form>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Title</th>
+          <th>Points</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @entries && @entries.any? %>
+          <% @entries.each do |entry| %>
+            <tr>
+              <td><%= entry.rank %></td>
+              <td><strong><%= entry.title %></strong></td>
+              <td><%= entry.points %></td>
+              <td><%= entry.comments %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="4" style="text-align: center;">No Entries Found</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </body>
 </html>
