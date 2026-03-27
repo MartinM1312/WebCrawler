@@ -17,9 +17,7 @@ maintainable, and highly testable.
 - **Decoupled Infrastructure:** Data extraction (`Nokogiri`)
   and persistence (`SQLite3`) are isolated into adapters.
 - **Framework:** **Sinatra** was chosen over Ruby on Rails
-  since it is a lightweight web framework providing a fast
-  and straightforward HTTP layer to interact with the
-  application's core logic.
+  since it is a lightweight web framework.
 - **Performance:** The web scraper uses Nokogiri's helpers
   and Ruby integer evaluation to process the DOM. Execution
   time is measured using the system's monotonic clock
