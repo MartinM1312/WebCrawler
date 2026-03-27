@@ -15,7 +15,9 @@ class WebScraper
 
     doc.css('.athing').each do |entry| 
       rank = entry.css('.rank').text.to_i
-      title = entry.css('.titleline').text
+      raw_title = entry.css('.titleline').text
+
+      title = raw_title.gsub(/\s+/, ' ').strip
 
       entry_subtext = entry.next_element
       score = entry_subtext.css('.score').text.to_i
