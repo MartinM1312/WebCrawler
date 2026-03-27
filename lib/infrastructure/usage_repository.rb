@@ -6,10 +6,10 @@ class UsageRepository
     setup_schema
   end
 
-  def save_usage_log(applied_filter, entries_returned)
+  def save_usage_log(applied_filter, entries_returned, execution_time_ms)
     @db.execute(
-      "INSERT INTO usage_logs (timestamp, applied_filter, entries_returned) VALUES (?, ?, ?)",
-      [Time.now.to_i, applied_filter, entries_returned]
+      "INSERT INTO usage_logs (timestamp, applied_filter, entries_returned, execution_time_ms) VALUES (?, ?, ?, ?)",
+      [Time.now.to_i, applied_filter, entries_returned, execution_time_ms]
     )
   end
 
@@ -21,7 +21,8 @@ class UsageRepository
         id INTEGER PRIMARY KEY,
         timestamp INTEGER,
         applied_filter VARCHAR(50),
-        entries_returned INTEGER
+        entries_returned INTEGER,
+        execution_time_ms INTEGER
       );
     SQL
   end
