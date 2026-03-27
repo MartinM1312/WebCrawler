@@ -36,6 +36,9 @@ GEM
       rack-protection (= 4.2.1)
       sinatra (= 4.2.1)
       tilt (~> 2.0)
+    sqlite3 (2.9.2)
+      mini_portile2 (~> 2.8.0)
+    sqlite3 (2.9.2-arm64-darwin)
     tilt (2.7.0)
 
 PLATFORMS
@@ -47,6 +50,7 @@ DEPENDENCIES
   nokogiri
   sinatra
   sinatra-contrib
+  sqlite3
 
 BUNDLED WITH
    2.5.22
